@@ -27,6 +27,16 @@ app.get('/', function(req, res){
     res.render('index', {count: req.session.count});
 });
 
+app.get('/plus2', function(req, res){
+    req.session.count += 1;
+    res.redirect('/');
+});
+
+app.get('/reset', function(req, res){
+    req.session.count = undefined;
+    res.redirect('/');
+});
+
 app.listen(2748, function(){
     console.log("Listening on port 2748!");
 });
